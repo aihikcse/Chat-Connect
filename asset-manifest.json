@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Chat-Connect/static/css/main.c86b3df1.css",
+    "main.js": "/Chat-Connect/static/js/main.76bd5342.js",
+    "index.html": "/Chat-Connect/index.html",
+    "main.c86b3df1.css.map": "/Chat-Connect/static/css/main.c86b3df1.css.map",
+    "main.76bd5342.js.map": "/Chat-Connect/static/js/main.76bd5342.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c86b3df1.css",
+    "static/js/main.76bd5342.js"
+  ]
+}
