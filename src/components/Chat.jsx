@@ -11,6 +11,7 @@ const style = {
 const Chat = ({user}) => {
   const [messages, setMessages] = useState([]);
   const scroll = useRef();
+  const scrollRef = useRef(null);
 
   useEffect(() => {
     const q = query(collection(db, 'messages'), orderBy('timestamp'));
@@ -29,6 +30,7 @@ const Chat = ({user}) => {
   //     scroll.current.scrollIntoView({ behavior: "smooth" });
   //   }
   // }, [messages]);
+
 
   // Function to handle new user join
   const handleNewUserJoin = () => {
@@ -65,6 +67,14 @@ const Chat = ({user}) => {
   };
 }, []);
 
+
+useEffect(() => {
+  // Scroll to the latest message when messages state changes
+  if (scrollRef.current) {
+    scrollRef.current.scrollIntoView({ behavior: 'smooth' });
+  }
+}, [messages]);
+
   return (
     <>
       <main className={style.main} style={style.mainstyle}>
@@ -72,6 +82,7 @@ const Chat = ({user}) => {
           messages.map((message) => (
             <Message key={message.id} message={message} user={user}/>
           ))}
+          <div ref={scrollRef}></div>
       </main>
       {/* Send Message Compoenent */}
       <SendMessage scroll={scroll} />
